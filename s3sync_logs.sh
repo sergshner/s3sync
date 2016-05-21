@@ -1,7 +1,7 @@
 #!/bin/bash
 source `dirname $0`/s3sync_init.sh
 for dir in "${LOGS_DIRS[@]}"; do
-	/usr/bin/s3cmd sync $dir s3://$LOGS_BUCKET$dir/
+	/usr/bin/s3cmd sync $dir s3://$LOGS_BUCKET$dir
 	if [ $? -eq 0 ]
 	then
 	  echo "$dir successfully synced to S3"
