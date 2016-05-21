@@ -11,6 +11,7 @@ else
 fi
 
 # Backup mysql databases
+mkdir -p $BACKUP_MYSQL_PATH
 docker exec -it mysql_c mysqldump -uroot -p$MYSQL_ROOT_PASS --all-databases --single-transaction > $BACKUP_MYSQL_PATH
 if [ $? -eq 0 ]
 then
