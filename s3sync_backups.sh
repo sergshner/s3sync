@@ -1,5 +1,5 @@
 #!/bin/bash
-source s3sync_init.sh
+source `dirname $0`/s3sync_init.sh
 # Backup web root
 /usr/bin/s3cmd sync $BACKUP_WEB_PATH s3://$BACKUP_BUCKET/$BACKUP_WEB_PATH/
 if [ $? -eq 0 ]
