@@ -1,7 +1,7 @@
 #!/bin/bash
 source `dirname $0`/s3sync_init.sh
 # Backup web root
-/usr/bin/s3cmd sync $BACKUP_WEB_PATH s3://$BACKUP_BUCKET/$BACKUP_WEB_PATH/
+/usr/bin/s3cmd sync $BACKUP_WEB_PATH s3://$BACKUP_BUCKET$BACKUP_WEB_PATH/
 if [ $? -eq 0 ]
 then
   echo "$BACKUP_WEB_PATH successfully synced to S3"
@@ -20,7 +20,7 @@ else
   echo "The error has happened during mysqldump" >&2
   exit $?
 fi
-/usr/bin/s3cmd sync $BACKUP_MYSQL_PATH s3://$BACKUP_BUCKET/$BACKUP_MYSQL_PATH
+/usr/bin/s3cmd sync $BACKUP_MYSQL_PATH s3://$BACKUP_BUCKET$BACKUP_MYSQL_PATH
 if [ $? -eq 0 ]
 then
   echo "$BACKUP_MYSQL_PATH successfully synced to S3"
